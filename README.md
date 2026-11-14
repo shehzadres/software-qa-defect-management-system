@@ -20,7 +20,9 @@ These figures describe the saved evidence in this repository. Re-run the suite t
 
 ## Recruiter quick tour
 
-Start with the visual report: **[QA Execution Dashboard](reports/qa-dashboard.html)**.
+**[Open the live recruiter dashboard](https://shehzadres.github.io/software-qa-defect-management-system/)** for the visual execution summary.
+
+The same report is available in the repository as **[QA Execution Dashboard](reports/qa-dashboard.html)**.
 
 Then review:
 - [Test plan](docs/TEST_PLAN.md) and [test strategy](docs/TEST_STRATEGY.md)

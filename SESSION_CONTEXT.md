@@ -26,10 +26,11 @@ The repository has been prepared locally for GitHub publication and recruiter re
 - Updated the runner to select an available localhost port dynamically, avoiding collisions with other local services.
 - `.gitignore` excludes generated databases, Python caches, logs, and local environments. Secret/placeholder scan found no matches in tracked source.
 - Initial GitHub Actions checks exposed a clean-checkout issue: the SQLite data directory existed locally but was not tracked. `application.init_db()` now creates it automatically before opening the database.
-- GitHub Pages was enabled for workflow-based deployment after the first run showed the repository had no Pages site configured. The Pages workflow is committed; verify its deployment URL returns HTTP 200 before advertising it as live.
-- The latest local rerun after the clean-checkout fix again passed 32/32 planned cases plus all 3 supplemental checks, and the database/traceability validator passed.
+- GitHub Pages was enabled for workflow-based deployment. Pages workflow run `43559107729` succeeded; the published root URL returned HTTP 200 and the redirect dashboard is live at https://shehzadres.github.io/software-qa-defect-management-system/.
+- GitHub Actions QA validation run `43559107728` succeeded on Ubuntu in 31 seconds.
+- The latest local rerun after the clean-checkout fix passed 32/32 planned cases plus all 3 supplemental checks; the database/traceability validator passed.
 
 ## Remaining work
-1. Verify the first GitHub Actions run completes successfully.
+1. Periodically review GitHub Actions action/runtime deprecation notices and dependency updates.
 2. Reverify Jira issue links/statuses when presenting the live Jira workspace.
 3. Complete independent security and load testing before making production-readiness claims.

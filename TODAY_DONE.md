@@ -23,4 +23,6 @@
 - Fresh execution: 32/32 planned cases passed plus 3 supplemental checks; 35 total passed, 0 failed.
 - Database and traceability validator passed all checks.
 - GitHub Actions initially exposed a clean-checkout SQLite directory issue; fixed startup to create the data directory automatically.
-- Enabled GitHub Pages for workflow-based publication of the recruiter dashboard. Hosted CI and Pages runs after the fix remain to be verified.
+- Enabled GitHub Pages for workflow-based publication of the recruiter dashboard. Pages run `43559107729` succeeded and the public URL returned HTTP 200.
+- GitHub Actions QA validation run `43559107728` passed on Ubuntu in 31 seconds.
+- Added the live dashboard URL to the README recruiter quick tour.
