@@ -1,0 +1,70 @@
+name: Publish recruiter dashboard
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "reports/**"
+      - "test-cases/**"
+      - "requirements/**"
+      - "defects/**"
+      - "docs/**"
+      - "sql/**"
+      - "README.md"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Prepare recruiter site
+        run: |
+          mkdir -p site
+          cp -R reports test-cases requirements defects docs sql site/
+          cp README.md LICENSE site/
+          cat > site/index.html <<'EOF'
+          <!doctype html>
+          <html lang="en">
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+              <meta http-equiv="refresh" content="0;url=reports/qa-dashboard.html">
+              <title>TaskFlow QA Portfolio</title>
+            </head>
+            <body>
+              <p>Opening the <a href="reports/qa-dashboard.html">TaskFlow QA execution dashboard</a>…</p>
+            </body>
+          </html>
+          EOF
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
