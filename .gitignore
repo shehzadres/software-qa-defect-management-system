@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+.env
+.env.*
+
+# Generated local databases (rebuild from CSV/source scripts)
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+
+# Playwright and test output
+test-results/
+playwright-report/
+blob-report/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

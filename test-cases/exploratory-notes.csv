@@ -1,0 +1,6 @@
+session_id,charter,area,observation,follow_up,linked_defect
+ET-01,A,Session expiry,Simulated: expired session redirected before protected mutation,Verify on real build,
+ET-01,A,Authorization,Simulated: outsider could read/update private project,Create defect,BUG-001
+ET-01,B,Status transitions,Simulated: direct To Do to Done accepted,Create defect,BUG-003
+ET-01,B,Comments,Simulated: double submit created duplicate comments,Create defect,BUG-005
+ET-01,C,Search,Simulated: private project task appeared in results,Create defect,BUG-004

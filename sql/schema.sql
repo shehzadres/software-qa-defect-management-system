@@ -1,0 +1,11 @@
+PRAGMA foreign_keys = ON;
+CREATE TABLE IF NOT EXISTS requirements(requirement_id TEXT PRIMARY KEY,title TEXT NOT NULL,description TEXT NOT NULL,priority TEXT NOT NULL,acceptance_criteria TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS test_cases(test_case_id TEXT PRIMARY KEY,requirement_id TEXT NOT NULL REFERENCES requirements(requirement_id),title TEXT NOT NULL,test_type TEXT NOT NULL,priority TEXT NOT NULL,preconditions TEXT NOT NULL,steps TEXT NOT NULL,test_data TEXT,expected_result TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS test_executions(execution_id INTEGER PRIMARY KEY AUTOINCREMENT,test_case_id TEXT NOT NULL REFERENCES test_cases(test_case_id),build TEXT NOT NULL,environment TEXT NOT NULL,executed_by TEXT NOT NULL,executed_at TEXT NOT NULL,status TEXT NOT NULL CHECK(status IN ('Passed','Failed','Blocked','Not Run')),actual_result TEXT NOT NULL,defect_id TEXT);
+CREATE TABLE IF NOT EXISTS live_test_executions(live_execution_id INTEGER PRIMARY KEY AUTOINCREMENT,test_case_id TEXT NOT NULL REFERENCES test_cases(test_case_id),build TEXT NOT NULL,environment TEXT NOT NULL,executed_at TEXT,status TEXT NOT NULL CHECK(status IN ('PASS','FAIL','Not Run')),actual_evidence TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS defects(defect_id TEXT PRIMARY KEY,summary TEXT NOT NULL,requirement_id TEXT REFERENCES requirements(requirement_id),severity TEXT NOT NULL,priority TEXT NOT NULL,status TEXT NOT NULL,component TEXT NOT NULL,environment TEXT NOT NULL,build TEXT NOT NULL,steps_to_reproduce TEXT NOT NULL,expected_result TEXT NOT NULL,actual_result TEXT NOT NULL,assignee TEXT,evidence_ref TEXT,resolution TEXT);
+CREATE TABLE IF NOT EXISTS defect_history(history_id INTEGER PRIMARY KEY AUTOINCREMENT,defect_id TEXT NOT NULL REFERENCES defects(defect_id),from_status TEXT,to_status TEXT NOT NULL,changed_by TEXT NOT NULL,changed_at TEXT NOT NULL,comment TEXT);
+CREATE TABLE IF NOT EXISTS traceability(requirement_id TEXT NOT NULL REFERENCES requirements(requirement_id),test_case_id TEXT NOT NULL REFERENCES test_cases(test_case_id),PRIMARY KEY(requirement_id,test_case_id));
+CREATE INDEX IF NOT EXISTS idx_execution_status ON test_executions(status);
+CREATE INDEX IF NOT EXISTS idx_live_execution_status ON live_test_executions(status);
+CREATE INDEX IF NOT EXISTS idx_defect_status ON defects(status);

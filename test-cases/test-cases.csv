@@ -1,0 +1,33 @@
+test_case_id,requirement_id,title,test_type,priority,preconditions,steps,test_data,expected_result,actual_result,status,defect_id
+TC-001,REQ-001,Login valid credentials,Functional,P1,Active account,Open login; enter valid credentials; submit,qa.user@example.test,Dashboard and session,Simulated dashboard displayed,Passed,
+TC-002,REQ-001,Reject invalid password,Negative,P1,Active account,Enter valid email and wrong password; submit,Wrong password,Safe error and no session,Simulated error shown,Passed,
+TC-003,REQ-001,Logout invalidates session,Functional,P1,Authenticated,Logout; open protected dashboard,Existing session,Redirect and deny protected content,Simulated redirect,Passed,
+TC-004,REQ-001,Expired session blocks mutation,Negative,P1,Expired session,Open protected page; submit action,Expired session,Re-authenticate; no mutation,Simulated redirect,Passed,
+TC-005,REQ-002,Create project valid name,Functional,P1,Authenticated,Create project and save,Release Planning,One project appears,Simulated project created,Passed,
+TC-006,REQ-002,Reject blank project name,Negative,P2,Project form,Submit whitespace name,Whitespace,Validation and no record,Simulated validation,Passed,
+TC-007,REQ-002,Reject duplicate project name,Boundary,P2,Alpha exists,Create another Alpha,Alpha,Duplicate rejected,Simulated duplicate accepted,Failed,BUG-002
+TC-008,REQ-003,Block non-member project read,Authorization,P1,Private project exists,Sign in outsider; open project URL,Foreign project ID,Access denied,Simulated private details visible,Failed,BUG-001
+TC-009,REQ-003,Block non-member project update,Authorization,P1,Private project exists,Sign in outsider; submit project update,Foreign project ID,Access denied and unchanged,Simulated update accepted,Failed,BUG-001
+TC-010,REQ-004,Create task valid title,Functional,P1,Project member,Add task and save,Prepare release notes,Task appears once,Simulated task created,Passed,
+TC-011,REQ-004,Reject empty task title,Negative,P1,Task form,Submit empty title,Empty,Validation and no task,Simulated validation,Passed,
+TC-012,REQ-004,Accept 120-character title,Boundary,P2,Task form,Enter 120 chars and save,120 chars,Save without truncation,Simulated saved,Passed,
+TC-013,REQ-004,Reject 121-character title,Boundary,P2,Task form,Enter 121 chars and save,121 chars,Validation prevents save,Simulated validation,Passed,
+TC-014,REQ-005,Edit task persistence,Functional,P1,Authorized task,Edit title; save; reload,Updated title,New title persists,Simulated persisted,Passed,
+TC-015,REQ-005,Prevent outsider task edit,Authorization,P1,Private task,Sign in outsider; edit foreign task,Foreign task ID,Denied and unchanged,Simulated edit accepted,Failed,BUG-001
+TC-016,REQ-006,Assign project member,Functional,P2,Task and member exist,Select member and save,member@example.test,Assignee updated,Simulated assigned,Passed,
+TC-017,REQ-006,Reject non-member assignment,Negative,P2,Task exists,Assign outsider,outsider@example.test,Assignment rejected,Simulated rejected,Passed,
+TC-018,REQ-007,Valid status sequence,Functional,P1,Task To Do,Set In Progress then Done,To Do > In Progress > Done,Transitions accepted,Simulated accepted,Passed,
+TC-019,REQ-007,Reject direct Done transition,Negative,P1,Task To Do,Submit Done directly,To Do > Done,Transition rejected,Simulated direct transition accepted,Failed,BUG-003
+TC-020,REQ-007,Reject unknown status,Negative,P2,Task exists,Submit Archived status,Archived,Validation; state unchanged,Simulated rejected,Passed,
+TC-021,REQ-008,Add comment once,Functional,P2,Project member,Enter and submit comment,Ready for review,Comment persists once,Simulated persisted,Passed,
+TC-022,REQ-008,Reject empty comment,Negative,P2,Comment form,Submit whitespace,Whitespace,Validation; no record,Simulated rejected,Passed,
+TC-023,REQ-009,Case-insensitive task search,Functional,P2,Tasks exist,Search lower and upper case,release notes,Same result set,Simulated same results,Passed,
+TC-024,REQ-009,Search excludes private tasks,Authorization,P1,Private task exists,Search private title as outsider,secret-project,No private result,Simulated private result exposed,Failed,BUG-004
+TC-025,REQ-009,Search special characters safely,Negative,P2,Search available,Search quote and wildcard,' OR * %,No crash or data exposure,Simulated safe result,Passed,
+TC-026,REQ-010,Delete project handles children,Data Integrity,P1,Project has tasks/comments,Delete project; inspect children,Project with children,Cascade or block; no orphans,Simulated cascade,Passed,
+TC-027,REQ-010,Foreign key blocks orphan task,Data Integrity,P1,DB access,Insert task with missing project,Missing project ID,FK rejects insert,Simulated FK rejection,Passed,
+TC-028,REQ-008,Double submit comment once,Regression,P2,Comment form,Double click submit,Same comment,Single row,Simulated duplicate comments,Failed,BUG-005
+TC-029,REQ-005,Update survives navigation,Regression,P1,Existing task,Edit; navigate away; return,Regression task,Updated text remains,Simulated retained,Passed,
+TC-030,REQ-001,Logout blocks browser back,Regression,P1,Authenticated,Logout; back; refresh,Logged-out session,Protected content inaccessible,Simulated login required,Passed,
+TC-031,REQ-006,Assignee survives status change,Regression,P2,Assigned task,Change status; reload,Existing assignee,Assignee retained,Simulated retained,Passed,
+TC-032,REQ-009,Empty search behavior,Boundary,P3,Search page,Submit empty query,Empty query,Defined empty state,Simulated product decision pending,Not Run,

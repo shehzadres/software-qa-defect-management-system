@@ -1,0 +1,11 @@
+requirement_id,title,description,priority,acceptance_criteria
+REQ-001,Authentication,Sign in and sign out,High,Valid login creates session; invalid credentials fail safely; logout invalidates session
+REQ-002,Project creation,Create projects,High,Unique nonblank name creates one project; duplicate or blank rejected
+REQ-003,Project authorization,Restrict private project access,High,Non-member cannot view or mutate private project
+REQ-004,Task creation,Create tasks,High,Valid title creates task; invalid title rejected
+REQ-005,Task editing,Update task details,High,Authorized updates persist; unauthorized edits denied
+REQ-006,Task assignment,Assign project members,Medium,Member can be assigned; non-member rejected
+REQ-007,Task status,Enforce supported transitions,High,Only To Do > In Progress > Done accepted
+REQ-008,Task comments,Add comments,Medium,Nonempty comment persists once
+REQ-009,Task search,Search visible tasks,Medium,Case-insensitive search returns only authorized tasks
+REQ-010,Data integrity,Preserve parent-child relationships,High,Foreign keys enforced; no orphan children

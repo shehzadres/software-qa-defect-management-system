@@ -1,0 +1,185 @@
+{
+  "target": "TaskFlow local QA target",
+  "base_url": "http://127.0.0.1:51803",
+  "run_type": "Playwright browser + HTTP workflow checks",
+  "simulated": false,
+  "results": [
+    {
+      "case": "TC-002",
+      "result": "PASS",
+      "detail": "Invalid email or password"
+    },
+    {
+      "case": "TC-001",
+      "result": "PASS",
+      "detail": "Authenticated dashboard rendered"
+    },
+    {
+      "case": "SUP-UI-01",
+      "result": "PASS",
+      "detail": "Project created from browser UI"
+    },
+    {
+      "case": "SUP-UI-02",
+      "result": "PASS",
+      "detail": "Task created and rendered in browser UI"
+    },
+    {
+      "case": "TC-005",
+      "result": "PASS",
+      "detail": "HTTP 200: {\"id\":2,\"name\":\"Release QA\"}"
+    },
+    {
+      "case": "TC-007",
+      "result": "PASS",
+      "detail": "Duplicate project returned HTTP 409"
+    },
+    {
+      "case": "TC-006",
+      "result": "PASS",
+      "detail": "Blank project returned HTTP 422"
+    },
+    {
+      "case": "TC-010",
+      "result": "PASS",
+      "detail": "Task create HTTP 200"
+    },
+    {
+      "case": "TC-011",
+      "result": "PASS",
+      "detail": "Empty task title HTTP 422"
+    },
+    {
+      "case": "TC-012",
+      "result": "PASS",
+      "detail": "120 char title HTTP 200"
+    },
+    {
+      "case": "TC-013",
+      "result": "PASS",
+      "detail": "121 char title HTTP 422"
+    },
+    {
+      "case": "TC-019",
+      "result": "PASS",
+      "detail": "Direct To Do > Done HTTP 409"
+    },
+    {
+      "case": "TC-018",
+      "result": "PASS",
+      "detail": "Sequential transitions HTTP 200/200"
+    },
+    {
+      "case": "TC-028",
+      "result": "PASS",
+      "detail": "Repeated request yielded 1 stored comment(s)"
+    },
+    {
+      "case": "TC-023",
+      "result": "PASS",
+      "detail": "Search returned 1 result(s)"
+    },
+    {
+      "case": "TC-032",
+      "result": "PASS",
+      "detail": "Empty search returned HTTP 200 with 3 visible tasks"
+    },
+    {
+      "case": "TC-001-B",
+      "result": "PASS",
+      "detail": "Second user authenticated"
+    },
+    {
+      "case": "TC-008",
+      "result": "PASS",
+      "detail": "Outsider project read HTTP 404"
+    },
+    {
+      "case": "TC-024",
+      "result": "PASS",
+      "detail": "Outsider search result count 0"
+    },
+    {
+      "case": "TC-009",
+      "result": "PASS",
+      "detail": "Outsider project mutation HTTP 404"
+    },
+    {
+      "case": "TC-014",
+      "result": "PASS",
+      "detail": "Edit HTTP 200; reload confirmed"
+    },
+    {
+      "case": "TC-029",
+      "result": "PASS",
+      "detail": "Edited task remained visible after browser navigation and reload"
+    },
+    {
+      "case": "TC-015",
+      "result": "PASS",
+      "detail": "Outsider task edit HTTP 404"
+    },
+    {
+      "case": "TC-017",
+      "result": "PASS",
+      "detail": "Non-member assignment HTTP 422"
+    },
+    {
+      "case": "TC-016",
+      "result": "PASS",
+      "detail": "Add member HTTP 200; assignment HTTP 200"
+    },
+    {
+      "case": "TC-020",
+      "result": "PASS",
+      "detail": "Unknown status HTTP 409"
+    },
+    {
+      "case": "TC-021",
+      "result": "PASS",
+      "detail": "Comment create HTTP 200"
+    },
+    {
+      "case": "TC-022",
+      "result": "PASS",
+      "detail": "Blank comment HTTP 422"
+    },
+    {
+      "case": "TC-025",
+      "result": "PASS",
+      "detail": "Special-character search HTTP 200"
+    },
+    {
+      "case": "TC-031",
+      "result": "PASS",
+      "detail": "Assign to member HTTP 200"
+    },
+    {
+      "case": "TC-004",
+      "result": "PASS",
+      "detail": "Expired/logged-out session /me HTTP 401"
+    },
+    {
+      "case": "TC-026",
+      "result": "PASS",
+      "detail": "Delete HTTP 200; remaining child tasks 0"
+    },
+    {
+      "case": "TC-027",
+      "result": "PASS",
+      "detail": "Orphan task insert rejected by SQLite foreign key"
+    },
+    {
+      "case": "TC-030",
+      "result": "PASS",
+      "detail": "Browser back after logout did not restore protected dashboard"
+    },
+    {
+      "case": "TC-003",
+      "result": "PASS",
+      "detail": "After UI logout /me HTTP 401"
+    }
+  ],
+  "passed": 35,
+  "failed": 0
+}

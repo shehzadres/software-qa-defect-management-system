@@ -1,0 +1,33 @@
+test_case_id,requirement_id,title,live_status,actual_evidence,build,executed_at_utc
+TC-001,REQ-001,Login valid credentials,PASS,Authenticated dashboard rendered,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-002,REQ-001,Reject invalid password,PASS,Invalid email or password,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-003,REQ-001,Logout invalidates session,PASS,After UI logout /me HTTP 401,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-004,REQ-001,Expired session blocks mutation,PASS,Expired/logged-out session /me HTTP 401,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-005,REQ-002,Create project valid name,PASS,"HTTP 200: {""id"":2,""name"":""Release QA""}",TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-006,REQ-002,Reject blank project name,PASS,Blank project returned HTTP 422,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-007,REQ-002,Reject duplicate project name,PASS,Duplicate project returned HTTP 409,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-008,REQ-003,Block non-member project read,PASS,Outsider project read HTTP 404,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-009,REQ-003,Block non-member project update,PASS,Outsider project mutation HTTP 404,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-010,REQ-004,Create task valid title,PASS,Task create HTTP 200,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-011,REQ-004,Reject empty task title,PASS,Empty task title HTTP 422,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-012,REQ-004,Accept 120-character title,PASS,120 char title HTTP 200,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-013,REQ-004,Reject 121-character title,PASS,121 char title HTTP 422,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-014,REQ-005,Edit task persistence,PASS,Edit HTTP 200; reload confirmed,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-015,REQ-005,Prevent outsider task edit,PASS,Outsider task edit HTTP 404,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-016,REQ-006,Assign project member,PASS,Add member HTTP 200; assignment HTTP 200,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-017,REQ-006,Reject non-member assignment,PASS,Non-member assignment HTTP 422,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-018,REQ-007,Valid status sequence,PASS,Sequential transitions HTTP 200/200,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-019,REQ-007,Reject direct Done transition,PASS,Direct To Do > Done HTTP 409,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-020,REQ-007,Reject unknown status,PASS,Unknown status HTTP 409,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-021,REQ-008,Add comment once,PASS,Comment create HTTP 200,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-022,REQ-008,Reject empty comment,PASS,Blank comment HTTP 422,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-023,REQ-009,Case-insensitive task search,PASS,Search returned 1 result(s),TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-024,REQ-009,Search excludes private tasks,PASS,Outsider search result count 0,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-025,REQ-009,Search special characters safely,PASS,Special-character search HTTP 200,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-026,REQ-010,Delete project handles children,PASS,Delete HTTP 200; remaining child tasks 0,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-027,REQ-010,Foreign key blocks orphan task,PASS,Orphan task insert rejected by SQLite foreign key,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-028,REQ-008,Double submit comment once,PASS,Repeated request yielded 1 stored comment(s),TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-029,REQ-005,Update survives navigation,PASS,Edited task remained visible after browser navigation and reload,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-030,REQ-001,Logout blocks browser back,PASS,Browser back after logout did not restore protected dashboard,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-031,REQ-006,Assignee survives status change,PASS,Assign to member HTTP 200,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
+TC-032,REQ-009,Empty search behavior,PASS,Empty search returned HTTP 200 with 3 visible tasks,TaskFlow local QA target 1.4,2026-11-14T04:53:27.599707+00:00
