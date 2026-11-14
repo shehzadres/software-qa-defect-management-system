@@ -1,6 +1,6 @@
 {
   "target": "TaskFlow local QA target",
-  "base_url": "http://127.0.0.1:51803",
+  "base_url": "http://127.0.0.1:54977",
   "run_type": "Playwright browser + HTTP workflow checks",
   "simulated": false,
   "results": [

@@ -22,4 +22,5 @@
 - Fixed the live-check runner to choose an available localhost port dynamically instead of assuming port 8765.
 - Fresh execution: 32/32 planned cases passed plus 3 supplemental checks; 35 total passed, 0 failed.
 - Database and traceability validator passed all checks.
-- GitHub Actions validation was queued after the push; its final hosted result remains to be verified.
+- GitHub Actions initially exposed a clean-checkout SQLite directory issue; fixed startup to create the data directory automatically.
+- Enabled GitHub Pages for workflow-based publication of the recruiter dashboard. Hosted CI and Pages runs after the fix remain to be verified.

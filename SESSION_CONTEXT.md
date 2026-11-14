@@ -25,7 +25,9 @@ The repository has been prepared locally for GitHub publication and recruiter re
 - Project validator passed: requirements 10/10, test cases 32/32, defects 5/5, live executions 32/32, foreign keys valid, and full requirements/test-case traceability.
 - Updated the runner to select an available localhost port dynamically, avoiding collisions with other local services.
 - `.gitignore` excludes generated databases, Python caches, logs, and local environments. Secret/placeholder scan found no matches in tracked source.
-- GitHub Actions run `43558891708` was queued immediately after publication; verify its final result before claiming hosted CI success.
+- Initial GitHub Actions checks exposed a clean-checkout issue: the SQLite data directory existed locally but was not tracked. `application.init_db()` now creates it automatically before opening the database.
+- GitHub Pages was enabled for workflow-based deployment after the first run showed the repository had no Pages site configured. The Pages workflow is committed; verify its deployment URL returns HTTP 200 before advertising it as live.
+- The latest local rerun after the clean-checkout fix again passed 32/32 planned cases plus all 3 supplemental checks, and the database/traceability validator passed.
 
 ## Remaining work
 1. Verify the first GitHub Actions run completes successfully.

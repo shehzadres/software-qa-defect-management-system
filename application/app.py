@@ -15,6 +15,7 @@ def db():
     return con
 
 def init_db():
+    DB.parent.mkdir(parents=True, exist_ok=True)
     con=db()
     con.executescript("""
     CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY, email TEXT UNIQUE NOT NULL, password_hash TEXT NOT NULL);
