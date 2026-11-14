@@ -12,6 +12,6 @@
 - [x] Document Jira training issues with explicit simulated-data boundaries.
 - [x] Add root dependency manifest, ignore rules, MIT license, and recruiter dashboard.
 - [x] Reconcile contradictory test-plan, sign-off, and Jira documentation.
-- [ ] Re-run the full suite on the target contributor's machine before each release.
+- [x] Re-run the full suite on the target contributor's machine for this publication (32/32 planned cases passed; 3 supplemental checks passed).
 - [ ] Reverify Jira issue links/statuses when presenting the live Jira workspace.
 - [ ] Complete independent security and load testing before making production-readiness claims.

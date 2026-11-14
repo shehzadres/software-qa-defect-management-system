@@ -18,8 +18,16 @@ The repository has been prepared locally for GitHub publication and recruiter re
 - The runner uses browser interactions, HTTP/API assertions, and direct database checks. Do not call all 32 cases browser-only UI automation.
 - This is a local portfolio demo, not a production security audit or production release certification.
 
-## Next steps
-1. Review final git status and ignored generated artifacts.
-2. Optionally initialize local Git if not already initialized.
-3. Create a GitHub repository and push only after the destination/repository ownership is confirmed.
-4. Verify the published README/dashboard and GitHub Actions run.
+## Publication and verification (2026-11-14)
+- Public GitHub repository: https://github.com/shehzadres/software-qa-defect-management-system
+- Initial publication commit: `0a87089` on `main`.
+- Local full run: 32/32 planned cases passed, plus 3 supplemental checks; 35 total checks passed, 0 failed.
+- Project validator passed: requirements 10/10, test cases 32/32, defects 5/5, live executions 32/32, foreign keys valid, and full requirements/test-case traceability.
+- Updated the runner to select an available localhost port dynamically, avoiding collisions with other local services.
+- `.gitignore` excludes generated databases, Python caches, logs, and local environments. Secret/placeholder scan found no matches in tracked source.
+- GitHub Actions run `43558891708` was queued immediately after publication; verify its final result before claiming hosted CI success.
+
+## Remaining work
+1. Verify the first GitHub Actions run completes successfully.
+2. Reverify Jira issue links/statuses when presenting the live Jira workspace.
+3. Complete independent security and load testing before making production-readiness claims.

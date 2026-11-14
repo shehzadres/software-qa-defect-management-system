@@ -12,3 +12,14 @@
 
 ## Current verified result
 32 planned cases executed, 32 passed, 0 failed, 0 not run. Three supplemental checks and second-user authentication are reported separately. No live defects were reproduced. Five seeded defect examples remain training data.
+
+
+## GitHub publication - 2026-11-14
+
+- Identified this as the missing third SQA portfolio project; the other four SQA projects already had public repositories.
+- Created and published https://github.com/shehzadres/software-qa-defect-management-system.
+- Initial publication commit: `0a87089` on `main`.
+- Fixed the live-check runner to choose an available localhost port dynamically instead of assuming port 8765.
+- Fresh execution: 32/32 planned cases passed plus 3 supplemental checks; 35 total passed, 0 failed.
+- Database and traceability validator passed all checks.
+- GitHub Actions validation was queued after the push; its final hosted result remains to be verified.
